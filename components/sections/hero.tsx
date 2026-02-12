@@ -7,6 +7,7 @@ import { generateWhatsAppLink } from '@/lib/whatsapp';
 import { Phone, ArrowRight, CheckCircle } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export function Hero() {
   const whatsappLink = generateWhatsAppLink({
@@ -43,11 +44,15 @@ export function Hero() {
       {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((image, index) => (
-          <div
+          <motion.div
             key={image}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{
+              opacity: index === currentImageIndex ? 1 : 0,
+              scale: index === currentImageIndex ? 1 : 1.1,
+            }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
           >
             <Image
               src={image}
@@ -57,7 +62,7 @@ export function Hero() {
               priority={index === 0}
               sizes="100vw"
             />
-          </div>
+          </motion.div>
         ))}
         {/* Lighter overlay for better image visibility */}
         <div className="absolute inset-0 bg-dark-950/65" />
@@ -65,22 +70,44 @@ export function Hero() {
 
       {/* Animated gradient effects on top */}
       <div className="absolute inset-0 z-[1]">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl"
+        />
       </div>
 
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn delay={0.1}>
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card mb-6">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card mb-6"
+            >
+              <motion.span
+                animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="w-2 h-2 bg-green-400 rounded-full"
+              />
               <span className="text-sm text-gray-300">Available 7 Days a Week</span>
-            </div>
+            </motion.div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <h1 className="heading-1 mb-6">
-              Professional <span className="gradient-text">Carpet Cleaning</span><br />
+              Professional <span className="gradient-text animate-gradient">Carpet Cleaning</span><br />
               Services Across Canada
             </h1>
           </FadeIn>
@@ -95,14 +122,14 @@ export function Hero() {
           <FadeIn delay={0.4}>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto group">
                   Get Free Quote
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-2" />
                 </Button>
               </a>
               <a href={`tel:${SITE_CONFIG.phone}`}>
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  <Phone className="w-5 h-5 mr-2" />
+                <Button variant="outline" size="lg" className="w-full sm:w-auto group">
+                  <Phone className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" />
                   {SITE_CONFIG.phoneDisplay}
                 </Button>
               </a>
@@ -112,13 +139,17 @@ export function Hero() {
           <FadeIn delay={0.5}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {benefits.map((benefit, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg glass-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg glass-card cursor-default"
                 >
                   <CheckCircle className="w-5 h-5 text-primary-400 flex-shrink-0" />
                   <span className="text-sm text-gray-300">{benefit}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </FadeIn>

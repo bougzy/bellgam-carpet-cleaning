@@ -1,8 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { StaggerContainer, StaggerItem } from '@/components/animations/stagger-container';
+import { ScrollReveal } from '@/components/animations/scroll-reveal';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import type { Service } from '@prisma/client';
 
@@ -26,8 +29,8 @@ export function ServicesSection({ services }: ServicesSectionProps) {
   return (
     <section className="section-padding bg-gradient-bg-1">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card mb-4">
+        <ScrollReveal className="text-center mb-12">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card mb-4 animate-pulse">
             <Sparkles className="w-4 h-4 text-primary-400" />
             <span className="text-sm text-gray-300">Our Services</span>
           </div>
@@ -38,7 +41,7 @@ export function ServicesSection({ services }: ServicesSectionProps) {
             From carpet steam cleaning to pet stain removal, we offer comprehensive
             cleaning services for your home or business
           </p>
-        </div>
+        </ScrollReveal>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {services.map((service, index) => {
@@ -54,29 +57,29 @@ export function ServicesSection({ services }: ServicesSectionProps) {
                         src={imageUrl}
                         alt={service.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/40 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
                       {/* Icon overlay */}
-                      <div className="absolute bottom-4 left-4">
-                        <div className="w-12 h-12 rounded-lg bg-primary-500/30 backdrop-blur-sm flex items-center justify-center border border-primary-500/50">
-                          <Sparkles className="w-6 h-6 text-primary-400" />
+                      <div className="absolute bottom-4 left-4 transition-transform duration-500 group-hover:scale-110">
+                        <div className="w-12 h-12 rounded-lg bg-primary-500/30 backdrop-blur-sm flex items-center justify-center border border-primary-500/50 transition-all duration-500 group-hover:bg-primary-500/50 group-hover:border-primary-400">
+                          <Sparkles className="w-6 h-6 text-primary-400 group-hover:animate-spin" />
                         </div>
                       </div>
                     </div>
 
                     <CardHeader>
-                      <CardTitle>{service.title}</CardTitle>
+                      <CardTitle className="transition-all duration-300 group-hover:translate-x-1">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-400 mb-4">{service.description}</p>
+                      <p className="text-gray-400 mb-4 transition-colors duration-300 group-hover:text-gray-300">{service.description}</p>
                       {service.price && (
-                        <p className="text-primary-400 font-semibold mb-4">{service.price}</p>
+                        <p className="text-primary-400 font-semibold mb-4 transition-all duration-300 group-hover:text-primary-300 group-hover:scale-105 inline-block">{service.price}</p>
                       )}
-                      <div className="flex items-center text-primary-400 text-sm font-medium">
+                      <div className="flex items-center text-primary-400 text-sm font-medium transition-all duration-300 group-hover:translate-x-2">
                         Learn More
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </CardContent>
                   </Card>
@@ -86,14 +89,14 @@ export function ServicesSection({ services }: ServicesSectionProps) {
           })}
         </StaggerContainer>
 
-        <div className="text-center">
+        <ScrollReveal className="text-center" delay={0.3}>
           <Link href="/services">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="group">
               View All Services
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-2" />
             </Button>
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
