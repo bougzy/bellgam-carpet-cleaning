@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +9,7 @@ import { FadeIn } from '@/components/animations/fade-in';
 import { verifyCredentials, createSessionToken, setSessionCookie } from '@/lib/auth-simple';
 import { Shield, Lock, Mail } from 'lucide-react';
 
-export default function AdminLoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect') || '/admin';
@@ -120,5 +120,29 @@ export default function AdminLoginPage() {
         </p>
       </FadeIn>
     </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full glass-card">
+              <Shield className="w-8 h-8 text-primary-400 animate-pulse" />
+            </div>
+            <h1 className="text-3xl font-bold gradient-text mb-2">
+              Admin Dashboard
+            </h1>
+            <p className="text-gray-400">
+              Loading...
+            </p>
+          </div>
+        </div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }
