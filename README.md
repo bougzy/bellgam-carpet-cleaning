@@ -100,8 +100,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser!
 Access the admin dashboard at `/admin/login`
 
 ```
-📧 Email: admin@bellgam.com
-🔑 Password: admin123
+
 ```
 
 ⚠️ **Important:** Change these credentials in production!
