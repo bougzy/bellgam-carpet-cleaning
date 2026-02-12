@@ -1,376 +1,433 @@
-# Bellgam Carpet Cleaning Website
+<div align="center">
 
-A modern, SEO-optimized NextJS 14 website for Bellgam's Carpet Cleaning with dark glassmorphism design, built-in admin dashboard, and WhatsApp integration.
+# 🧼 Bellgam Carpet Cleaning
 
-## 🚀 Project Status
+### Professional Carpet Cleaning Services Website
 
-**Phase 1: Foundation - ✅ COMPLETE**
+[![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-5.10-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-- [x] NextJS 14 project initialized with TypeScript & Tailwind
-- [x] All dependencies installed and configured
-- [x] Prisma + SQLite database setup
-- [x] Database schema created and migrated
-- [x] Database seeded with initial data
-- [x] Environment variables configured
-- [x] Tailwind custom theme with glassmorphism utilities
-- [x] Global CSS with custom glass components
-- [x] Base UI components created (Button, Input, Textarea, Select, Card)
-- [x] Animation components with Framer Motion (FadeIn, StaggerContainer, ScaleIn)
-- [x] Utility functions (utils.ts, constants.ts, prisma.ts, whatsapp.ts)
-- [x] Development server running
+[View Demo](#) • [Report Bug](https://github.com/bougzy/bellgam-carpet-cleaning/issues) • [Request Feature](https://github.com/bougzy/bellgam-carpet-cleaning/issues)
+
+<p align="center">
+  A modern, SEO-optimized NextJS website with dark glassmorphism design,<br/>
+  complete admin dashboard, and WhatsApp integration for carpet cleaning services.
+</p>
+
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎨 Modern Design
+- Dark glassmorphism UI
+- Smooth animations & transitions
+- Professional image carousel
+- Responsive across all devices
+
+### 📊 Admin Dashboard
+- Complete CRUD operations
+- Services management
+- Locations management
+- Contact form tracking
+
+</td>
+<td width="50%">
+
+### 💰 Smart Pricing
+- Dynamic pricing calculator
+- 3 apartment packages
+- Feature comparison
+- Clear CTAs
+
+### 🔍 SEO Optimized
+- Dynamic meta tags
+- Schema markup
+- Sitemap generation
+- Location-based pages
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+- Git
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bougzy/bellgam-carpet-cleaning.git
+cd bellgam-carpet-cleaning
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your configuration
+
+# Initialize database
+npx prisma generate
+npx prisma migrate deploy
+npx prisma db seed
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser!
+
+---
+
+## 🎯 Admin Access
+
+Access the admin dashboard at `/admin/login`
+
+```
+📧 Email: admin@bellgam.com
+🔑 Password: admin123
+```
+
+⚠️ **Important:** Change these credentials in production!
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: NextJS 14.2+ (App Router)
-- **Language**: TypeScript 5.3+
-- **Styling**: Tailwind CSS 3.4+
-- **Database**: SQLite + Prisma ORM
-- **Authentication**: NextAuth v5 (planned)
-- **Forms**: React Hook Form + Zod
-- **Animations**: Framer Motion 11+
-- **Email**: Resend
-- **UI**: Custom glassmorphism components
+<div align="center">
+
+### Core Technologies
+
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+### Backend & Database
+
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+
+### UI & Animation
+
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=for-the-badge&logo=radix-ui&logoColor=white)](https://www.radix-ui.com/)
+[![Lucide Icons](https://img.shields.io/badge/Lucide-F56565?style=for-the-badge&logo=lucide&logoColor=white)](https://lucide.dev/)
+
+### Forms & Validation
+
+[![React Hook Form](https://img.shields.io/badge/React_Hook_Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)](https://react-hook-form.com/)
+[![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)](https://zod.dev/)
+
+</div>
+
+---
 
 ## 📁 Project Structure
 
 ```
-bellgam/
-├── app/                    # NextJS App Router
-│   ├── globals.css        # Global styles with glassmorphism
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Homepage
-├── components/
-│   ├── ui/                # Base UI components
-│   │   ├── button.tsx
-│   │   ├── input.tsx
-│   │   ├── textarea.tsx
-│   │   ├── select.tsx
-│   │   └── card.tsx
-│   └── animations/        # Framer Motion wrappers
-│       ├── fade-in.tsx
-│       ├── stagger-container.tsx
-│       └── scale-in.tsx
-├── lib/
-│   ├── prisma.ts          # Prisma client
-│   ├── utils.ts           # Utility functions
-│   ├── constants.ts       # Site constants
-│   └── whatsapp.ts        # WhatsApp link generator
-├── prisma/
-│   ├── schema.prisma      # Database schema
-│   └── seed.ts            # Seed script
-├── data/
-│   └── content.db         # SQLite database
-└── public/
-    ├── images/            # Static images
-    └── uploads/           # User uploads
+bellgam-carpet-cleaning/
+│
+├── 📂 app/
+│   ├── 📂 (public)/               # Public-facing pages
+│   │   ├── 📄 page.tsx            # Homepage with hero carousel
+│   │   ├── 📂 services/           # Services listing & detail pages
+│   │   ├── 📂 locations/          # Location-specific SEO pages
+│   │   ├── 📂 gallery/            # Before/after image gallery
+│   │   ├── 📂 reviews/            # Customer testimonials
+│   │   ├── 📂 pricing/            # Pricing packages
+│   │   └── 📂 contact/            # Contact form with WhatsApp
+│   │
+│   ├── 📂 admin/                  # Admin dashboard (protected)
+│   │   ├── 📂 login/              # Admin authentication
+│   │   ├── 📂 services/           # Manage services (CRUD)
+│   │   ├── 📂 locations/          # Manage locations (CRUD)
+│   │   ├── 📂 reviews/            # Manage reviews (CRUD)
+│   │   └── 📂 contacts/           # View form submissions
+│   │
+│   └── 📂 api/                    # API routes
+│       ├── 📂 contact/            # Contact form handler
+│       └── 📂 admin/              # Admin CRUD endpoints
+│
+├── 📂 components/
+│   ├── 📂 ui/                     # Reusable UI components
+│   ├── 📂 layout/                 # Header, footer, navigation
+│   ├── 📂 sections/               # Homepage sections
+│   ├── 📂 forms/                  # Form components
+│   ├── 📂 admin/                  # Admin-specific components
+│   └── 📂 animations/             # Framer Motion wrappers
+│
+├── 📂 lib/
+│   ├── 📄 prisma.ts               # Prisma client singleton
+│   ├── 📄 auth-simple.ts          # Authentication logic
+│   ├── 📄 whatsapp.ts             # WhatsApp link generators
+│   ├── 📄 constants.ts            # Site configuration
+│   └── 📄 utils.ts                # Helper functions
+│
+├── 📂 prisma/
+│   ├── 📄 schema.prisma           # Database schema (8 models)
+│   ├── 📄 seed.ts                 # Seed data script
+│   └── 📂 data/                   # SQLite database file
+│
+└── 📄 middleware.ts               # Route protection
 ```
-
-## 🎨 Design System
-
-### Glassmorphism Theme
-
-The entire site uses a dark glassmorphism design with:
-- **Dark background**: #0a0a0a with gradient overlays
-- **Glass effects**: Backdrop blur with semi-transparent backgrounds
-- **Primary color**: Blue (#0ea5e9)
-- **Secondary color**: Green (#10b981)
-- **Accent color**: Amber (#f59e0b)
-
-### Pre-built Components
-
-#### UI Components
-- `Button` - Multiple variants (primary, secondary, accent, outline, ghost, glass)
-- `Input` - Glass-styled inputs with label, error, and helper text
-- `Textarea` - Glass-styled textarea
-- `Select` - Glass-styled dropdown select
-- `Card` - Glassmorphism cards with hover effects
-
-#### Animation Components
-- `FadeIn` - Fade in with directional slide
-- `StaggerContainer` & `StaggerItem` - Staggered animations for lists
-- `ScaleIn` - Scale and fade in with hover effects
-
-### Utility Classes
-
-Pre-built Tailwind classes available:
-- `.glass-card` - Glassmorphism card
-- `.glass-button` - Glass button
-- `.glass-input` - Glass input field
-- `.gradient-text` - Gradient text effect
-- `.btn-primary`, `.btn-secondary`, `.btn-accent` - Button variants
-- `.heading-1` through `.heading-4` - Typography
-- `.section-padding` - Standard section padding
-
-## 💾 Database
-
-### Models Created
-
-1. **User** - Admin users
-2. **Service** - Carpet cleaning services
-3. **Location** - Service area pages (cities)
-4. **Review** - Customer testimonials
-5. **BlogPost** - Blog articles
-6. **GalleryImage** - Before/after photos
-7. **ContactSubmission** - Form submissions
-8. **SiteSettings** - Site configuration
-
-### Seeded Data
-
-- ✅ Admin user (admin@bellgam.com / admin123)
-- ✅ 6 Services (Carpet Steam Cleaning, Upholstery, Tile & Grout, etc.)
-- ✅ 5 Locations (Vancouver, Burnaby, Surrey, Toronto, Calgary)
-- ✅ 5 Customer reviews
-- ✅ 2 Blog posts
-- ✅ 3 Gallery images
-- ✅ Site settings
-
-## 🔧 Environment Variables
-
-### Required (.env.local)
-
-```bash
-# Database
-DATABASE_URL="file:./data/content.db"
-
-# NextAuth
-NEXTAUTH_SECRET="your-secret-here"
-NEXTAUTH_URL="http://localhost:3000"
-
-# Site Configuration
-NEXT_PUBLIC_SITE_URL="http://localhost:3000"
-NEXT_PUBLIC_WHATSAPP_NUMBER="+16049021805"
-NEXT_PUBLIC_PHONE_DISPLAY="(604) 902-1805"
-NEXT_PUBLIC_EMAIL="info@bellgam.com"
-
-# Email (Resend)
-RESEND_API_KEY="re_your_key_here"
-RESEND_FROM_EMAIL="hello@bellgam.com"
-RESEND_TO_EMAIL="admin@bellgam.com"
-```
-
-## 🚀 Getting Started
-
-### Install Dependencies
-```bash
-npm install
-```
-
-### Run Database Migration
-```bash
-npx prisma migrate dev
-```
-
-### Seed the Database
-```bash
-npm run db:seed
-```
-
-### Start Development Server
-```bash
-npm run dev
-```
-
-Visit [http://localhost:3000](http://localhost:3000)
-
-### Other Commands
-
-```bash
-npm run build          # Build for production
-npm run start          # Start production server
-npm run db:studio      # Open Prisma Studio (database GUI)
-npm run db:generate    # Generate Prisma Client
-```
-
-## 📝 Admin Credentials
-
-**Email**: admin@bellgam.com
-**Password**: admin123
-
-⚠️ **Change this password after first login!**
-
-## 🗺️ Roadmap
-
-### ✅ Phase 1: Foundation (COMPLETE)
-- Project setup
-- Database schema and seeding
-- Base components and animations
-- Utility functions
-
-### 🔄 Phase 2: Next Steps
-- [ ] Set up NextAuth authentication
-- [ ] Build admin dashboard layout
-- [ ] Create admin CRUD interfaces (Services, Locations, Blog, etc.)
-- [ ] Build public website layout (Header, Footer, Navigation)
-- [ ] Build homepage with all sections
-
-### 📅 Phase 3: Public Website
-- [ ] Services pages (listing + detail)
-- [ ] Location pages (city-specific)
-- [ ] Gallery page with filters
-- [ ] Reviews page
-- [ ] Blog system
-- [ ] Pricing page
-- [ ] Contact page
-
-### 📅 Phase 4: Forms & Integration
-- [ ] Contact forms with validation
-- [ ] WhatsApp integration
-- [ ] Email notifications
-- [ ] Form submissions tracking
-
-### 📅 Phase 5: SEO & Polish
-- [ ] Dynamic meta tags
-- [ ] JSON-LD schema markup
-- [ ] Sitemap generation
-- [ ] Performance optimization
-- [ ] Mobile responsiveness
-- [ ] Accessibility audit
-
-### 📅 Phase 6: Deployment
-- [ ] Deploy to Vercel
-- [ ] Configure custom domain
-- [ ] Set up analytics
-- [ ] Final testing
-
-## 📚 Key Features
-
-### For Users
-- ✨ Modern glassmorphism design
-- 📱 Fully responsive
-- ⚡ Fast page loads
-- 🔍 SEO optimized
-- 💬 WhatsApp integration (simple wa.me links)
-- 📧 Contact forms
-- 🖼️ Before/after gallery
-- ⭐ Customer reviews
-- 📝 Blog articles
-- 📍 Multi-location support (15+ cities)
-
-### For Admins
-- 🔐 Secure authentication
-- 📊 Dashboard with analytics
-- ✏️ Full CRUD for all content
-- 🖼️ Image upload and management
-- 📝 Rich text editor for content
-- 🎨 SEO fields per page
-- 📱 Mobile-friendly admin interface
-
-## 🌐 WhatsApp Integration
-
-Simple WhatsApp integration using `wa.me` links (no API required):
-
-```typescript
-import { generateWhatsAppLink } from '@/lib/whatsapp';
-
-const link = generateWhatsAppLink({
-  service: 'Carpet Steam Cleaning',
-  location: 'Vancouver',
-});
-// Returns: https://wa.me/16049021805?text=...
-```
-
-## 🎨 Using Components
-
-### Button Example
-```tsx
-import { Button } from '@/components/ui/button';
-
-<Button variant="primary" size="lg">Get Free Quote</Button>
-<Button variant="glass">Learn More</Button>
-<Button variant="outline" isLoading>Submitting...</Button>
-```
-
-### Card Example
-```tsx
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-
-<Card hover glass>
-  <CardHeader>
-    <CardTitle>Service Name</CardTitle>
-  </CardHeader>
-  <CardContent>
-    <p>Service description...</p>
-  </CardContent>
-</Card>
-```
-
-### Animation Example
-```tsx
-import { FadeIn } from '@/components/animations/fade-in';
-import { StaggerContainer, StaggerItem } from '@/components/animations/stagger-container';
-
-<FadeIn direction="up" delay={0.2}>
-  <h1>Welcome</h1>
-</FadeIn>
-
-<StaggerContainer>
-  {items.map((item) => (
-    <StaggerItem key={item.id}>
-      <Card>{item.content}</Card>
-    </StaggerItem>
-  ))}
-</StaggerContainer>
-```
-
-## 📖 Documentation
-
-### Database Queries
-All database queries use Prisma. Examples:
-
-```typescript
-import { prisma } from '@/lib/prisma';
-
-// Get all published services
-const services = await prisma.service.findMany({
-  where: { published: true },
-  orderBy: { order: 'asc' },
-});
-
-// Get service by slug
-const service = await prisma.service.findUnique({
-  where: { slug: 'carpet-steam-cleaning' },
-  include: { reviews: true },
-});
-```
-
-### WhatsApp Links
-```typescript
-import {
-  generateWhatsAppLink,
-  generateQuoteWhatsAppLink,
-  generateServiceWhatsAppLink
-} from '@/lib/whatsapp';
-
-// Simple link
-const link = generateWhatsAppLink({
-  service: 'Carpet Cleaning',
-  location: 'Vancouver',
-});
-
-// Quote request with full form data
-const quoteLink = generateQuoteWhatsAppLink({
-  name: 'John Doe',
-  service: 'Carpet Steam Cleaning',
-  location: 'Vancouver',
-  rooms: 3,
-});
-
-// Service-specific link
-const serviceLink = generateServiceWhatsAppLink('Upholstery Cleaning', 'Toronto');
-```
-
-## 🤝 Contributing
-
-This is a private project for Bellgam Carpet Cleaning.
-
-## 📄 License
-
-Proprietary - All rights reserved
-
-## 🆘 Support
-
-For questions or issues, contact the development team.
 
 ---
 
-Built with ❤️ using NextJS 14, TypeScript, and Tailwind CSS
+## 🎨 Key Features
+
+### 🖼️ Hero Image Carousel
+
+Auto-rotating image carousel with:
+- 4 professional carpet cleaning images
+- 5-second smooth fade transitions
+- Fixed text overlay for readability
+- Optimized for performance with Next.js Image
+
+```tsx
+// Carousel changes images every 5 seconds
+const heroImages = [
+  'professional-cleaning-1.jpg',
+  'clean-living-room.jpg',
+  'pet-friendly-cleaning.jpg',
+  'fresh-upholstery.jpg',
+];
+```
+
+### 💰 Dynamic Pricing Section
+
+<table>
+<tr>
+<th>Package</th>
+<th>Price</th>
+<th>Included</th>
+</tr>
+<tr>
+<td><b>1 Bedroom</b></td>
+<td><b>$125</b></td>
+<td>1 room + Living Room (~150 sq ft each)</td>
+</tr>
+<tr>
+<td><b>2 Bedroom</b> ⭐</td>
+<td><b>$170</b></td>
+<td>2 rooms + Living Room (~150 sq ft each)</td>
+</tr>
+<tr>
+<td><b>3 Bedroom</b></td>
+<td><b>$215</b></td>
+<td>3 rooms + Living Room (~150 sq ft each)</td>
+</tr>
+</table>
+
+### 🎭 Before/After Gallery
+
+Professional showcase with:
+- Side-by-side image comparisons
+- "BEFORE" / "AFTER" overlay badges
+- 6 transformation categories
+- Lightbox view for details
+- Category-based filtering
+
+### 📊 Admin Dashboard
+
+Complete content management:
+- **Services:** Add, edit, delete cleaning services
+- **Locations:** Manage multi-city pages (15+ cities)
+- **Reviews:** Approve/reject customer testimonials
+- **Gallery:** Upload before/after images
+- **Contacts:** Track form submissions with status
+- **Blog:** Create SEO blog posts (future)
+
+### 💬 WhatsApp Integration
+
+Smart WhatsApp links throughout:
+- Hero CTA with service context
+- Service-specific inquiry buttons
+- Location-based contact
+- Floating WhatsApp button (mobile)
+- Pre-filled messages for conversions
+
+```typescript
+// Example usage
+const link = generateWhatsAppLink({
+  service: 'Carpet Steam Cleaning',
+  location: 'Vancouver',
+  message: 'Hi! I need a quote for...'
+});
+// Output: https://wa.me/16049021805?text=...
+```
+
+---
+
+## 🗃️ Database Models
+
+```prisma
+model Service {
+  id          Int       @id @default(autoincrement())
+  title       String
+  slug        String    @unique
+  description String
+  price       String?
+  featured    Boolean   @default(false)
+  published   Boolean   @default(true)
+}
+
+model Location {
+  id       Int     @id @default(autoincrement())
+  city     String
+  province String
+  slug     String  @unique
+  content  String
+  featured Boolean @default(false)
+}
+
+model Review {
+  id           Int      @id @default(autoincrement())
+  customerName String
+  rating       Int      // 1-5 stars
+  content      String
+  featured     Boolean  @default(false)
+  published    Boolean  @default(false)
+}
+
+// + ContactSubmission, GalleryImage, BlogPost, User, SiteSettings
+```
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy
+vercel --prod
+```
+
+Or use the [Vercel Dashboard](https://vercel.com):
+1. Import your GitHub repository
+2. Add environment variables
+3. Click "Deploy"!
+
+### Environment Variables
+
+```env
+# Database
+DATABASE_URL="file:./prisma/data/content.db"
+
+# WhatsApp (use your business number with country code)
+NEXT_PUBLIC_WHATSAPP_NUMBER="+16049021805"
+
+# Session Secret (generate with: openssl rand -base64 32)
+NEXTAUTH_SECRET="your-secret-key-here"
+
+# Site URL (update for production)
+NEXT_PUBLIC_SITE_URL="https://bellgam.com"
+```
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+### 🏠 Homepage
+
+![Homepage](https://via.placeholder.com/800x450/0a0a0a/0ea5e9?text=Hero+Section+with+Carousel)
+
+*Hero section with auto-rotating images and glassmorphism design*
+
+---
+
+### 💰 Pricing Section
+
+![Pricing](https://via.placeholder.com/800x300/0a0a0a/10b981?text=Dynamic+Pricing+Cards)
+
+*Three apartment packages with clear pricing and features*
+
+---
+
+### 📊 Admin Dashboard
+
+![Admin](https://via.placeholder.com/800x450/0a0a0a/f59e0b?text=Admin+Dashboard)
+
+*Intuitive admin interface for content management*
+
+---
+
+### 🎭 Gallery
+
+![Gallery](https://via.placeholder.com/800x450/0a0a0a/ec4899?text=Before+After+Gallery)
+
+*Professional before/after image showcase*
+
+</div>
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) - The React framework for production
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Prisma](https://www.prisma.io/) - Next-generation ORM
+- [Framer Motion](https://www.framer.com/motion/) - Production-ready animations
+- [Unsplash](https://unsplash.com/) - Professional stock photography
+- [Lucide Icons](https://lucide.dev/) - Beautiful & consistent icons
+
+---
+
+<div align="center">
+
+### 💼 Built with ❤️ by the Bellgam Team
+
+[![GitHub Stars](https://img.shields.io/github/stars/bougzy/bellgam-carpet-cleaning?style=social)](https://github.com/bougzy/bellgam-carpet-cleaning)
+[![GitHub Forks](https://img.shields.io/github/forks/bougzy/bellgam-carpet-cleaning?style=social)](https://github.com/bougzy/bellgam-carpet-cleaning/fork)
+[![GitHub Watchers](https://img.shields.io/github/watchers/bougzy/bellgam-carpet-cleaning?style=social)](https://github.com/bougzy/bellgam-carpet-cleaning)
+
+**[⭐ Star this repo](https://github.com/bougzy/bellgam-carpet-cleaning)** if you find it helpful!
+
+---
+
+<sub>Made with [Claude Code](https://claude.com/claude-code) 🤖</sub>
+
+</div>
