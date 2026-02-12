@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id        String   @id @default(cuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   email     String   @unique
   password  String
   name      String?
@@ -21,7 +21,7 @@ model User {
 }
 
 model Service {
-  id              String   @id @default(cuid())
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
   slug            String   @unique
   title           String
   description     String
@@ -39,7 +39,7 @@ model Service {
 }
 
 model Location {
-  id             String   @id @default(cuid())
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
   slug           String   @unique
   city           String
   province       String
@@ -54,12 +54,12 @@ model Location {
 }
 
 model Review {
-  id           String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   customerName String
   rating       Int
   content      String
   service      Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
-  serviceId    String?
+  serviceId    String?  @db.ObjectId
   location     String?
   featured     Boolean  @default(false)
   published    Boolean  @default(true)
@@ -68,7 +68,7 @@ model Review {
 }
 
 model BlogPost {
-  id             String    @id @default(cuid())
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
   slug           String    @unique
   title          String
   excerpt        String
@@ -86,7 +86,7 @@ model BlogPost {
 }
 
 model GalleryImage {
-  id          String   @id @default(cuid())
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String?
   imageUrl    String
@@ -99,7 +99,7 @@ model GalleryImage {
 }
 
 model ContactSubmission {
-  id        String   @id @default(cuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   email     String
   phone     String?
@@ -112,7 +112,7 @@ model ContactSubmission {
 }
 
 model SiteSettings {
-  id        String   @id @default(cuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   key       String   @unique
   value     String
   updatedAt DateTime @updatedAt

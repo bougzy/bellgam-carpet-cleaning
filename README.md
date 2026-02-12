@@ -7,6 +7,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-5.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Prisma](https://img.shields.io/badge/Prisma-5.10-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -67,6 +68,7 @@
 - Node.js 18+ installed
 - npm or yarn package manager
 - Git
+- MongoDB Atlas account (free tier) - [Sign up here](https://www.mongodb.com/cloud/atlas/register)
 
 ### Installation
 
@@ -80,11 +82,18 @@ npm install
 
 # Set up environment variables
 cp .env.example .env.local
-# Edit .env.local with your configuration
+# Edit .env.local with your MongoDB connection string
 
-# Initialize database
+# Set up MongoDB Atlas
+# Follow the detailed guide in MONGODB_SETUP.md
+
+# Generate Prisma client
 npx prisma generate
-npx prisma migrate deploy
+
+# Push schema to MongoDB
+npx prisma db push
+
+# Seed database with initial data
 npx prisma db seed
 
 # Start development server
@@ -92,6 +101,8 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser!
+
+**📖 Detailed MongoDB setup:** See [MONGODB_SETUP.md](MONGODB_SETUP.md) for step-by-step instructions
 
 ---
 
@@ -121,7 +132,7 @@ Access the admin dashboard at `/admin/login`
 ### Backend & Database
 
 [![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
-[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
 ### UI & Animation
 
@@ -327,14 +338,17 @@ vercel --prod
 
 Or use the [Vercel Dashboard](https://vercel.com):
 1. Import your GitHub repository
-2. Add environment variables
-3. Click "Deploy"!
+2. Set up MongoDB Atlas (see [MONGODB_SETUP.md](MONGODB_SETUP.md))
+3. Add environment variables (especially `DATABASE_URL`)
+4. Click "Deploy"!
 
 ### Environment Variables
 
+**Important**: Before deploying, set up MongoDB Atlas and get your connection string. See [MONGODB_SETUP.md](MONGODB_SETUP.md) for detailed instructions.
+
 ```env
-# Database
-DATABASE_URL="file:./prisma/data/content.db"
+# Database - MongoDB Atlas connection string
+DATABASE_URL="mongodb+srv://username:password@cluster.mongodb.net/bellgam?retryWrites=true&w=majority"
 
 # WhatsApp (use your business number with country code)
 NEXT_PUBLIC_WHATSAPP_NUMBER="+16049021805"
