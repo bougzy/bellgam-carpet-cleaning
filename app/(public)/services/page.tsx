@@ -12,8 +12,8 @@ async function getServices() {
 }
 
 export const metadata = {
-  title: 'Our Services | Professional Carpet Cleaning | Bellgam',
-  description: 'Explore our comprehensive carpet cleaning services including steam cleaning, pet stain removal, upholstery cleaning, and more. Professional service guaranteed.',
+  title: 'Our Services | Professional Carpet Cleaning | Bellgams',
+  description: 'Explore our carpet and upholstery cleaning services including steam cleaning, pet stain removal, and more. Professional service guaranteed.',
 };
 
 export default async function ServicesPage() {
