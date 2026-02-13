@@ -18,11 +18,11 @@ export const SITE_CONFIG = {
     country: 'Canada',
   },
   social: {
-    facebook: 'https://facebook.com/bellgam',
-    instagram: 'https://instagram.com/bellgam',
-    twitter: 'https://twitter.com/bellgam',
-    linkedin: 'https://linkedin.com/company/bellgam',
-    youtube: 'https://youtube.com/@bellgam',
+    facebook: 'https://facebook.com/bellgams',
+    instagram: 'https://instagram.com/bellgams',
+    twitter: 'https://twitter.com/bellgams',
+    linkedin: 'https://linkedin.com/company/bellgams',
+    youtube: 'https://youtube.com/@bellgams',
   },
   businessHours: {
     monday: '8:00 AM - 8:00 PM',
