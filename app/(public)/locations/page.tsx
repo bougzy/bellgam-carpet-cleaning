@@ -41,7 +41,7 @@ export default async function LocationsPage() {
             Serving <span className="gradient-text">Communities</span> Across Canada
           </h1>
           <p className="body-large text-gray-400 max-w-2xl mx-auto">
-            Professional carpet cleaning services in major cities across Canada.
+            Professional carpet cleaning services in major cities in British Columbia.
             Find your local Bellgam service area below.
           </p>
         </div>

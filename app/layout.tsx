@@ -5,15 +5,15 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Bellgam Carpet Cleaning | Professional Carpet Cleaning Services',
-  description: 'Professional carpet cleaning services across Canada. Expert steam cleaning, pet stain removal, and upholstery cleaning. Same-day service available.',
+  title: 'Bellgams Carpet Cleaning | Professional Carpet Cleaning Services',
+  description: 'Professional carpet cleaning services in British Columbia. Expert steam cleaning, pet stain removal, and upholstery cleaning. Same-day service available.',
   keywords: 'carpet cleaning, steam cleaning, upholstery cleaning, pet stain removal, professional cleaning services',
   openGraph: {
-    title: 'Bellgam Carpet Cleaning | Professional Carpet Cleaning Services',
-    description: 'Professional carpet cleaning services across Canada. Expert steam cleaning, pet stain removal, and upholstery cleaning.',
+    title: 'Bellgams Carpet Cleaning | Professional Carpet Cleaning Services',
+    description: 'Professional carpet cleaning services in British Columbia. Expert steam cleaning, pet stain removal, and upholstery cleaning.',
     type: 'website',
     locale: 'en_CA',
-    siteName: 'Bellgam Carpet Cleaning',
+    siteName: 'Bellgams Carpet Cleaning',
   },
 };
 

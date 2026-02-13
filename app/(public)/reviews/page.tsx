@@ -13,7 +13,7 @@ async function getReviews() {
 
 export const metadata = {
   title: 'Customer Reviews & Testimonials | Bellgam Carpet Cleaning',
-  description: 'Read what our customers say about Bellgam Carpet Cleaning. 500+ five-star reviews from satisfied customers across Canada.',
+  description: 'Read what our customers say about Bellgam Carpet Cleaning. 500+ five-star reviews from satisfied customers in British Columbia.',
 };
 
 export default async function ReviewsPage() {

@@ -6,7 +6,7 @@ const footerLinks = {
   services: [
     { name: 'Carpet Steam Cleaning', href: '/services/carpet-steam-cleaning' },
     { name: 'Upholstery Cleaning', href: '/services/upholstery-cleaning' },
-    { name: 'Tile & Grout Cleaning', href: '/services/tile-grout-cleaning' },
+    { name: 'Area Rug Cleaning', href: '/services/area-rug-cleaning' },
     { name: 'Pet Odor Removal', href: '/services/pet-odor-removal' },
   ],
   company: [
@@ -17,8 +17,8 @@ const footerLinks = {
   ],
   locations: [
     { name: 'Vancouver', href: '/locations/vancouver-carpet-cleaning' },
-    { name: 'Toronto', href: '/locations/toronto-carpet-cleaning' },
-    { name: 'Calgary', href: '/locations/calgary-carpet-cleaning' },
+    { name: 'Burnaby', href: '/locations/burnaby-carpet-cleaning' },
+    { name: 'Surrey', href: '/locations/surrey-carpet-cleaning' },
     { name: 'All Locations', href: '/locations' },
   ],
 };
@@ -35,12 +35,12 @@ export function Footer() {
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Bellgam</h3>
+                <h3 className="text-xl font-bold text-white">Bellgams</h3>
                 <p className="text-xs text-gray-400">Carpet Cleaning</p>
               </div>
             </Link>
             <p className="text-gray-400 mb-4">
-              Professional carpet cleaning services across Canada. Expert steam cleaning,
+              Professional carpet cleaning services in British Columbia. Expert steam cleaning,
               pet stain removal, and upholstery cleaning.
             </p>
 

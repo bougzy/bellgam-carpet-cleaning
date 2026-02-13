@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧼 Bellgam Carpet Cleaning
+# 🧼 Bellgams Carpet Cleaning
 
 ### Professional Carpet Cleaning Services Website
 
@@ -431,7 +431,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-### 💼 Built with ❤️ by the Bellgam Team
+### 💼 Built with ❤️ by the Bellgams Team
 
 [![GitHub Stars](https://img.shields.io/github/stars/bougzy/bellgam-carpet-cleaning?style=social)](https://github.com/bougzy/bellgam-carpet-cleaning)
 [![GitHub Forks](https://img.shields.io/github/forks/bougzy/bellgam-carpet-cleaning?style=social)](https://github.com/bougzy/bellgam-carpet-cleaning/fork)
