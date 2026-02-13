@@ -24,7 +24,7 @@ async function getHomepageData() {
 }
 
 export const metadata = {
-  title: 'Professional Carpet Cleaning Services | Bellgam Carpet Cleaning',
+  title: 'Professional Carpet Cleaning Services | Bellgams Carpet Cleaning',
   description: 'Expert carpet cleaning services in British Columbia. Steam cleaning, pet stain removal, upholstery cleaning. Same-day service available. Get your free quote today!',
 };
 

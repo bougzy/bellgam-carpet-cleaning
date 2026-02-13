@@ -65,7 +65,7 @@ We clean:
       featured: true,
       published: true,
       order: 2,
-      seoTitle: 'Professional Upholstery Cleaning Services | Bellgamss',
+      seoTitle: 'Professional Upholstery Cleaning Services | Bellgams',
       seoDescription: 'Expert upholstery cleaning for sofas, chairs, and furniture. Safe for all fabrics. Eco-friendly solutions. Free estimates available.',
     },
     {
@@ -419,7 +419,7 @@ Don't let pet accidents ruin your beautiful carpets. Contact Bellgams Carpet Cle
     },
     {
       key: 'tagline',
-      value: 'Professional Carpet Cleaning Services Across Canada',
+      value: 'Professional Carpet Cleaning Services in British Columbia',
     },
     {
       key: 'phone',
@@ -427,7 +427,7 @@ Don't let pet accidents ruin your beautiful carpets. Contact Bellgams Carpet Cle
     },
     {
       key: 'email',
-      value: 'info@bellgam.com',
+      value: 'sbellgam2019@gmail.com',
     },
     {
       key: 'whatsapp',
@@ -446,7 +446,7 @@ Don't let pet accidents ruin your beautiful carpets. Contact Bellgams Carpet Cle
 
   console.log('\n🎉 Database seeded successfully!');
   console.log('\n📝 Admin credentials:');
-  console.log('   Email: admin@bellgam.com');
+  console.log('   Email: sbellgam2019@gmail.com');
   console.log('   Password: admin123');
   console.log('\n⚠️  Change the admin password after first login!');
 }

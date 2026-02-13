@@ -13,14 +13,14 @@ interface ServicesSectionProps {
   services: Service[];
 }
 
-// Map service slugs to professional images
+// Map service slugs to professional images - only carpet and upholstery services
 const serviceImages: Record<string, string> = {
   'carpet-steam-cleaning': 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop&q=80',
   'pet-stain-odor-removal': 'https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=600&h=400&fit=crop&q=80',
-  'upholstery-cleaning': 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop&q=80',
+  'pet-odor-removal': 'https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=600&h=400&fit=crop&q=80',
+  'upholstery-cleaning': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&q=80',
   'area-rug-cleaning': 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600&h=400&fit=crop&q=80',
-  'tile-grout-cleaning': 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&q=80',
-  'commercial-cleaning': 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop&q=80',
+  'stain-removal': 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop&q=80',
 };
 
 const defaultServiceImage = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop&q=80';
@@ -74,9 +74,6 @@ export function ServicesSection({ services }: ServicesSectionProps) {
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-400 mb-4 transition-colors duration-300 group-hover:text-gray-300">{service.description}</p>
-                      {service.price && (
-                        <p className="text-primary-400 font-semibold mb-4 transition-all duration-300 group-hover:text-primary-300 group-hover:scale-105 inline-block">{service.price}</p>
-                      )}
                       <div className="flex items-center text-primary-400 text-sm font-medium transition-all duration-300 group-hover:translate-x-2">
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
