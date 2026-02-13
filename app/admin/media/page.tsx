@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Save, Plus, Trash2, Image as ImageIcon } from 'lucide-react';
+import { Save, Plus, Trash2, Upload, RefreshCw } from 'lucide-react';
 import Image from 'next/image';
 
 interface MediaImage {
@@ -14,6 +14,8 @@ interface MediaImage {
 export default function MediaManagementPage() {
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [uploadingIndex, setUploadingIndex] = useState<number | null>(null);
+  const fileInputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const [heroImages, setHeroImages] = useState<MediaImage[]>([
     { url: '', alt: '' },
     { url: '', alt: '' },
@@ -54,6 +56,61 @@ export default function MediaManagementPage() {
   const removeHeroImage = (index: number) => {
     const newImages = heroImages.filter((_, i) => i !== index);
     setHeroImages(newImages);
+  };
+
+  const handleFileUpload = async (index: number, file: File) => {
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      alert('Please upload an image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Image size must be less than 5MB');
+      return;
+    }
+
+    setUploadingIndex(index);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('folder', 'hero');
+
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload image');
+      }
+
+      const data = await response.json();
+
+      // Update the image URL with the uploaded file path
+      handleHeroImageChange(index, 'url', data.url);
+
+      // Auto-generate alt text from filename if not set
+      if (!heroImages[index].alt) {
+        const altText = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+        handleHeroImageChange(index, 'alt', altText);
+      }
+
+      alert('Image uploaded successfully!');
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      alert('Failed to upload image. Please try again.');
+    } finally {
+      setUploadingIndex(null);
+    }
+  };
+
+  const triggerFileInput = (index: number) => {
+    fileInputRefs.current[index]?.click();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -150,21 +207,89 @@ export default function MediaManagementPage() {
                       className="object-cover"
                       sizes="100vw"
                     />
+                    {/* Replace Image Overlay */}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Button
+                        type="button"
+                        variant="primary"
+                        size="sm"
+                        onClick={() => triggerFileInput(index)}
+                        disabled={uploadingIndex === index}
+                      >
+                        {uploadingIndex === index ? (
+                          <>
+                            <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                            Uploading...
+                          </>
+                        ) : (
+                          <>
+                            <Upload className="w-4 h-4 mr-2" />
+                            Replace Image
+                          </>
+                        )}
+                      </Button>
+                    </div>
                   </div>
+                )}
+
+                {/* Hidden File Input */}
+                <input
+                  ref={(el) => (fileInputRefs.current[index] = el)}
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleFileUpload(index, file);
+                  }}
+                  className="hidden"
+                />
+
+                {/* Upload Button (shown when no image) */}
+                {!image.url && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => triggerFileInput(index)}
+                    disabled={uploadingIndex === index}
+                    className="w-full"
+                  >
+                    {uploadingIndex === index ? (
+                      <>
+                        <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                        Uploading...
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="w-4 h-4 mr-2" />
+                        Upload Image
+                      </>
+                    )}
+                  </Button>
                 )}
 
                 {/* Image URL */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Image URL *
+                    Image URL * <span className="text-gray-500 text-xs">(or upload above)</span>
                   </label>
-                  <input
-                    type="text"
-                    value={image.url}
-                    onChange={(e) => handleHeroImageChange(index, 'url', e.target.value)}
-                    placeholder="https://... or /images/hero/..."
-                    className="w-full px-4 py-2 rounded-lg bg-dark-800 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
+                  <div className="flex space-x-2">
+                    <input
+                      type="text"
+                      value={image.url}
+                      onChange={(e) => handleHeroImageChange(index, 'url', e.target.value)}
+                      placeholder="https://... or /images/hero/..."
+                      className="flex-1 px-4 py-2 rounded-lg bg-dark-800 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => triggerFileInput(index)}
+                      disabled={uploadingIndex === index}
+                    >
+                      <Upload className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
 
                 {/* Alt Text */}
@@ -192,14 +317,19 @@ export default function MediaManagementPage() {
               💡 How to Add Images
             </h3>
             <div className="text-sm text-gray-300 space-y-2">
-              <p><strong>Option 1:</strong> Use the Upload API</p>
+              <p><strong>Option 1:</strong> Upload Files Directly (Recommended)</p>
               <ol className="list-decimal list-inside ml-4 space-y-1">
-                <li>Upload your image to <code className="px-2 py-1 bg-dark-800 rounded text-primary-400">/public/images/hero/</code></li>
-                <li>Use the path: <code className="px-2 py-1 bg-dark-800 rounded text-primary-400">/images/hero/your-image.jpg</code></li>
+                <li>Click "Upload Image" button on any image slot</li>
+                <li>Select your image file (JPG, PNG, WebP, etc.)</li>
+                <li>Image will be automatically uploaded and saved to <code className="px-2 py-1 bg-dark-800 rounded text-primary-400">/images/hero/</code></li>
+                <li>Maximum file size: 5MB</li>
               </ol>
 
               <p className="mt-3"><strong>Option 2:</strong> Use External URLs</p>
-              <p className="ml-4">Paste the full URL: <code className="px-2 py-1 bg-dark-800 rounded text-primary-400">https://example.com/image.jpg</code></p>
+              <p className="ml-4">Paste the full URL in the Image URL field: <code className="px-2 py-1 bg-dark-800 rounded text-primary-400">https://example.com/image.jpg</code></p>
+
+              <p className="mt-3"><strong>To Replace an Image:</strong></p>
+              <p className="ml-4">Hover over the image preview and click "Replace Image", or click the upload button next to the URL field</p>
             </div>
           </CardContent>
         </Card>
