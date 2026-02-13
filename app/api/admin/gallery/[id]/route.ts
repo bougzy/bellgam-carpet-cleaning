@@ -1,6 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const image = await prisma.galleryImage.findUnique({
+      where: { id: params.id },
+    });
+
+    if (!image) {
+      return NextResponse.json(
+        { error: 'Image not found' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(image);
+  } catch (error) {
+    console.error('Error fetching gallery image:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch gallery image' },
+      { status: 500 }
+    );
+  }
+}
+
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
