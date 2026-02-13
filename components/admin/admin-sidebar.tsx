@@ -11,6 +11,7 @@ import {
   Star,
   FileText,
   Image,
+  Images,
   MessageSquare,
   Settings,
   LogOut,
@@ -24,6 +25,7 @@ const navigation = [
   { name: 'Reviews', href: '/admin/reviews', icon: Star },
   { name: 'Blog Posts', href: '/admin/blog', icon: FileText },
   { name: 'Gallery', href: '/admin/gallery', icon: Image },
+  { name: 'Site Media', href: '/admin/media', icon: Images },
   { name: 'Contact Forms', href: '/admin/contacts', icon: MessageSquare },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ];

@@ -21,16 +21,25 @@ export function Hero() {
     'Certified Professionals',
   ];
 
-  // Carousel images - Professional carpet and upholstery cleaning
-  const heroImages = [
-    'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80', // Modern living room with clean carpet
-    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&h=1080&fit=crop&q=80', // Clean carpet interior
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&h=1080&fit=crop&q=80', // Sofa in living room
-    'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1920&h=1080&fit=crop&q=80', // Clean white carpet bedroom
-  ];
-
+  // State for hero images - fetched from database
+  const [heroImages, setHeroImages] = useState<Array<{ url: string; alt: string }>>([
+    { url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80', alt: 'Professional carpet cleaning' },
+  ]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Fetch hero images from API
+  useEffect(() => {
+    fetch('/api/site-media')
+      .then(res => res.json())
+      .then(data => {
+        if (data.heroImages && data.heroImages.length > 0) {
+          setHeroImages(data.heroImages);
+        }
+      })
+      .catch(error => console.error('Error fetching hero images:', error));
+  }, []);
+
+  // Image carousel rotation
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
@@ -45,7 +54,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         {heroImages.map((image, index) => (
           <motion.div
-            key={image}
+            key={image.url}
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{
               opacity: index === currentImageIndex ? 1 : 0,
@@ -55,8 +64,8 @@ export function Hero() {
             className="absolute inset-0"
           >
             <Image
-              src={image}
-              alt={`Professional carpet cleaning service ${index + 1}`}
+              src={image.url}
+              alt={image.alt || `Professional carpet cleaning service ${index + 1}`}
               fill
               className="object-cover"
               priority={index === 0}
