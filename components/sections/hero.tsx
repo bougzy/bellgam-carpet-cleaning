@@ -21,12 +21,12 @@ export function Hero() {
     'Certified Professionals',
   ];
 
-  // Carousel images
+  // Carousel images - Professional carpet and upholstery cleaning
   const heroImages = [
-    'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&h=1080&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&h=1080&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1920&h=1080&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80', // Modern living room with clean carpet
+    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&h=1080&fit=crop&q=80', // Clean carpet interior
+    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&h=1080&fit=crop&q=80', // Sofa in living room
+    'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1920&h=1080&fit=crop&q=80', // Clean white carpet bedroom
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -108,7 +108,7 @@ export function Hero() {
           <FadeIn delay={0.2}>
             <h1 className="heading-1 mb-6">
               Professional <span className="gradient-text animate-gradient">Carpet Cleaning</span><br />
-              Services Across Canada
+              Services In British Columbia
             </h1>
           </FadeIn>
 

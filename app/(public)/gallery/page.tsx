@@ -4,13 +4,13 @@ import { StaggerContainer, StaggerItem } from '@/components/animations/stagger-c
 import { Image as ImageIcon, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 
-// Professional carpet cleaning images
+// Professional carpet and upholstery cleaning images
 const galleryImages = [
   {
     id: 1,
-    title: 'Living Room Transformation',
+    title: 'Living Room Carpet Transformation',
     category: 'Residential',
-    before: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&h=600&fit=crop',
     after: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop',
     description: 'Deep steam cleaning removed years of dirt and stains',
   },
@@ -20,7 +20,7 @@ const galleryImages = [
     category: 'Pet Treatment',
     before: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
     after: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=600&fit=crop',
-    description: 'Complete removal of pet stains and odors',
+    description: 'Complete removal of pet stains and odors from carpets',
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const galleryImages = [
     category: 'Commercial',
     before: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
     after: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop',
-    description: 'High-traffic commercial space looking brand new',
+    description: 'High-traffic commercial carpet looking brand new',
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const galleryImages = [
     category: 'Upholstery',
     before: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&h=600&fit=crop',
     after: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=600&fit=crop',
-    description: 'Sofa restored to like-new condition',
+    description: 'Sofa and upholstery restored to like-new condition',
   },
   {
     id: 5,
@@ -44,21 +44,21 @@ const galleryImages = [
     category: 'Residential',
     before: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop',
     after: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&h=600&fit=crop',
-    description: 'Fresh and clean bedroom carpets',
+    description: 'Fresh and clean bedroom carpets throughout',
   },
   {
     id: 6,
-    title: 'Area Rug Cleaning',
+    title: 'Area Rug Deep Cleaning',
     category: 'Rugs',
-    before: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&h=600&fit=crop',
-    after: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop',
-    description: 'Delicate rug cleaning with expert care',
+    before: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&h=600&fit=crop',
+    after: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop',
+    description: 'Delicate area rug cleaning with expert care',
   },
 ];
 
 export const metadata = {
-  title: 'Gallery - Before & After Photos | Bellgam Carpet Cleaning',
-  description: 'See our professional carpet cleaning results. Before and after photos showing our expert steam cleaning, pet stain removal, and upholstery cleaning services.',
+  title: 'Gallery - Before & After Photos | Bellgams Carpet Cleaning',
+  description: 'See our professional carpet cleaning results in British Columbia. Before and after photos showing our expert steam cleaning, pet stain removal, and upholstery cleaning services.',
 };
 
 export default function GalleryPage() {

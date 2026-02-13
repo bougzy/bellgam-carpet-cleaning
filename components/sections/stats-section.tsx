@@ -29,7 +29,7 @@ export function StatsSection() {
             viewport={{ once: true }}
             className="heading-2 mb-4"
           >
-            Serving Canada Since <span className="gradient-text">2010</span>
+            Serving British Columbia Since <span className="gradient-text">2010</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export function StatsSection() {
             className="body-normal text-gray-400 max-w-2xl mx-auto"
           >
             Our commitment to excellence has made us the leading carpet cleaning service
-            across Canada
+            in British Columbia
           </motion.p>
         </div>
 

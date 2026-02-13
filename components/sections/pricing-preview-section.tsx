@@ -6,6 +6,7 @@ import { StaggerContainer, StaggerItem } from '@/components/animations/stagger-c
 import { ScrollReveal } from '@/components/animations/scroll-reveal';
 import { Check, Sparkles, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 export function PricingPreviewSection() {
   const pricingPackages = [
@@ -97,10 +98,13 @@ export function PricingPreviewSection() {
                     ))}
                   </div>
 
-                  <Link href="/contact" className="block w-full">
+                  <Link href="/contact" className="block w-full relative z-20 mt-6">
                     <Button
                       variant={pkg.popular ? 'primary' : 'outline'}
-                      className="w-full group"
+                      className={cn(
+                        "w-full group relative",
+                        pkg.popular && "shadow-2xl shadow-primary-500/50 hover:shadow-primary-500/70"
+                      )}
                     >
                       Book Now
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-2" />

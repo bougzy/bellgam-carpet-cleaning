@@ -10,10 +10,10 @@ async function main() {
   const hashedPassword = await bcrypt.hash('admin123', 10);
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@bellgam.com' },
+    where: { email: 'sbellgam2019@gmail.com' },
     update: {},
     create: {
-      email: 'admin@bellgam.com',
+      email: 'sbellgam2019@gmail.com',
       password: hashedPassword,
       name: 'Admin User',
       role: 'admin',
@@ -42,7 +42,7 @@ Perfect for:
       featured: true,
       published: true,
       order: 1,
-      seoTitle: 'Professional Carpet Steam Cleaning | Bellgam Carpet Cleaning',
+      seoTitle: 'Professional Carpet Steam Cleaning | Bellgams Carpet Cleaning',
       seoDescription: 'Expert carpet steam cleaning services using hot water extraction. Remove deep dirt, allergens, and stains. Eco-friendly solutions. Call for a free quote!',
     },
     {
@@ -65,30 +65,8 @@ We clean:
       featured: true,
       published: true,
       order: 2,
-      seoTitle: 'Professional Upholstery Cleaning Services | Bellgam',
+      seoTitle: 'Professional Upholstery Cleaning Services | Bellgamss',
       seoDescription: 'Expert upholstery cleaning for sofas, chairs, and furniture. Safe for all fabrics. Eco-friendly solutions. Free estimates available.',
-    },
-    {
-      slug: 'tile-grout-cleaning',
-      title: 'Tile & Grout Cleaning',
-      description: 'Restore the original shine of your tile floors and clean dirty grout lines.',
-      longDescription: `Transform your tile floors with our professional tile and grout cleaning service. Over time, grout lines accumulate dirt and grime that regular mopping can't remove.
-
-We use specialized equipment and solutions to deep clean grout lines and restore your tile floors to their original appearance. Our process also includes optional sealing to protect grout from future staining.
-
-Ideal for:
-- Kitchen floors
-- Bathroom floors and walls
-- Entryways
-- Commercial spaces
-- Pool areas`,
-      icon: '/images/services/tile-cleaning.svg',
-      price: 'From $129',
-      featured: true,
-      published: true,
-      order: 3,
-      seoTitle: 'Tile & Grout Cleaning Services | Bellgam Carpet Cleaning',
-      seoDescription: 'Professional tile and grout cleaning. Remove built-up dirt and grime. Restore shine to your floors. Grout sealing available.',
     },
     {
       slug: 'area-rug-cleaning',
@@ -109,7 +87,7 @@ We clean:
       price: 'From $89',
       featured: false,
       published: true,
-      order: 4,
+      order: 3,
       seoTitle: 'Area Rug Cleaning Services | Persian & Oriental Rugs',
       seoDescription: 'Expert area rug cleaning for Persian, Oriental, wool, and silk rugs. Gentle care that preserves colors and fibers. Free pickup available.',
     },
@@ -131,7 +109,7 @@ Effective for:
       price: 'From $79',
       featured: true,
       published: true,
-      order: 5,
+      order: 4,
       seoTitle: 'Pet Stain & Odor Removal | Dog & Cat Urine Treatment',
       seoDescription: 'Professional pet stain and odor removal. Eliminate urine, feces, and vomit stains. Enzymatic treatment that works. Satisfaction guaranteed.',
     },
@@ -154,8 +132,8 @@ Common stains we treat:
       price: 'Starting at $59',
       featured: false,
       published: true,
-      order: 6,
-      seoTitle: 'Professional Stain Removal Services | Bellgam',
+      order: 5,
+      seoTitle: 'Professional Stain Removal Services | Bellgams',
       seoDescription: 'Expert stain removal for wine, coffee, ink, and more. Specialized treatments for tough stains. High success rate. Free consultation.',
     },
   ];
@@ -191,7 +169,7 @@ Areas we serve in Vancouver:
 - Gastown
 - And all Vancouver neighborhoods
 
-Why Vancouver residents choose Bellgam:
+Why Vancouver residents choose Bellgams:
 ✓ Same-day service available
 ✓ Eco-friendly, non-toxic cleaning solutions
 ✓ Certified and trained technicians
@@ -229,30 +207,6 @@ Our Burnaby carpet cleaning service provides the same exceptional quality and cu
       seoTitle: 'Carpet Cleaning Surrey BC | Professional Cleaning Services',
       seoDescription: 'Professional carpet cleaning in Surrey, BC. Serving all Surrey neighborhoods. Expert steam cleaning and stain removal. Call for a free quote today.',
     },
-    {
-      slug: 'toronto-carpet-cleaning',
-      city: 'Toronto',
-      province: 'ON',
-      content: `Professional carpet cleaning services in Toronto and the GTA. Serving downtown Toronto, North York, Scarborough, Etobicoke, and all Toronto neighborhoods.
-
-As Toronto's trusted carpet cleaning experts, we bring years of experience and cutting-edge equipment to every job.`,
-      phoneNumber: '+14161234567',
-      featured: true,
-      published: true,
-      seoTitle: 'Carpet Cleaning Toronto ON | Professional Steam Cleaning',
-      seoDescription: 'Expert carpet cleaning in Toronto and GTA. Professional steam cleaning services. Serving all Toronto neighborhoods. Same-day service available.',
-    },
-    {
-      slug: 'calgary-carpet-cleaning',
-      city: 'Calgary',
-      province: 'AB',
-      content: `Quality carpet cleaning services in Calgary, Alberta. We serve all Calgary quadrants and surrounding areas with professional, reliable carpet cleaning services.`,
-      phoneNumber: '+14031234567',
-      featured: false,
-      published: true,
-      seoTitle: 'Carpet Cleaning Calgary AB | Professional Services',
-      seoDescription: 'Professional carpet cleaning in Calgary, AB. Expert steam cleaning and stain removal. Serving all Calgary quadrants. Free estimates.',
-    },
   ];
 
   for (const location of locations) {
@@ -277,8 +231,8 @@ As Toronto's trusted carpet cleaning experts, we bring years of experience and c
     {
       customerName: 'Michael Chen',
       rating: 5,
-      content: 'Best carpet cleaning company I\'ve used in Toronto. They removed pet stains I thought were permanent. Highly recommend!',
-      location: 'Toronto, ON',
+      content: 'Best carpet cleaning company I\'ve used. They removed pet stains I thought were permanent. Highly recommend!',
+      location: 'Burnaby, BC',
       featured: true,
       published: true,
     },
@@ -286,7 +240,7 @@ As Toronto's trusted carpet cleaning experts, we bring years of experience and c
       customerName: 'Emily Thompson',
       rating: 5,
       content: 'Professional, courteous, and thorough. They took the time to explain their process and the results were fantastic. My carpets smell fresh and look great!',
-      location: 'Calgary, AB',
+      location: 'Surrey, BC',
       featured: true,
       published: true,
     },
@@ -301,7 +255,7 @@ As Toronto's trusted carpet cleaning experts, we bring years of experience and c
     {
       customerName: 'Jennifer Lee',
       rating: 5,
-      content: 'We had a major wine spill on our white carpet and thought it was ruined. Bellgam came the next day and completely removed the stain. Miracle workers!',
+      content: 'We had a major wine spill on our white carpet and thought it was ruined. Bellgams came the next day and completely removed the stain. Miracle workers!',
       location: 'Vancouver, BC',
       featured: true,
       published: true,
@@ -356,7 +310,7 @@ Light-colored carpets show dirt more easily and may need more frequent cleaning 
 
 Regular professional cleaning extends the life of your carpet, improves indoor air quality, removes allergens and bacteria, and maintains your home's appearance.
 
-Contact Bellgam Carpet Cleaning today to schedule your next cleaning!`,
+Contact Bellgams Carpet Cleaning today to schedule your next cleaning!`,
       coverImage: '/images/blog/carpet-cleaning-frequency.jpg',
       category: 'Maintenance',
       tags: '["carpet care", "maintenance", "cleaning tips"]',
@@ -401,7 +355,7 @@ Professional carpet cleaners have access to commercial-grade enzymatic cleaners 
 - Train pets properly
 - Address behavioral issues
 
-Don't let pet accidents ruin your beautiful carpets. Contact Bellgam Carpet Cleaning for professional pet stain and odor removal!`,
+Don't let pet accidents ruin your beautiful carpets. Contact Bellgams Carpet Cleaning for professional pet stain and odor removal!`,
       coverImage: '/images/blog/pet-stain-removal.jpg',
       category: 'Pet Care',
       tags: '["pet stains", "odor removal", "cleaning tips"]',
@@ -461,7 +415,7 @@ Don't let pet accidents ruin your beautiful carpets. Contact Bellgam Carpet Clea
   const settings = [
     {
       key: 'company_name',
-      value: 'Bellgam Carpet Cleaning',
+      value: 'Bellgams Carpet Cleaning',
     },
     {
       key: 'tagline',
