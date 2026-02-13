@@ -181,18 +181,24 @@ export default function MediaManagementPage() {
             </p>
 
             {heroImages.map((image, index) => (
-              <div key={index} className="p-4 rounded-lg border border-white/10 space-y-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold">Image {index + 1}</h3>
+              <div key={index} className="p-6 rounded-lg border-2 border-primary-500/20 bg-dark-800/50 space-y-4">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center">
+                      <span className="text-primary-400 font-bold">{index + 1}</span>
+                    </div>
+                    <h3 className="font-semibold text-lg">Hero Image {index + 1}</h3>
+                  </div>
                   {heroImages.length > 1 && (
                     <Button
                       type="button"
                       variant="ghost"
                       size="sm"
                       onClick={() => removeHeroImage(index)}
-                      className="text-red-400 hover:text-red-300"
+                      className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-4 h-4 mr-2" />
+                      Remove
                     </Button>
                   )}
                 </div>
@@ -234,7 +240,7 @@ export default function MediaManagementPage() {
 
                 {/* Hidden File Input */}
                 <input
-                  ref={(el) => (fileInputRefs.current[index] = el)}
+                  ref={(el) => { fileInputRefs.current[index] = el; }}
                   type="file"
                   accept="image/*"
                   onChange={(e) => {
@@ -246,50 +252,67 @@ export default function MediaManagementPage() {
 
                 {/* Upload Button (shown when no image) */}
                 {!image.url && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => triggerFileInput(index)}
-                    disabled={uploadingIndex === index}
-                    className="w-full"
-                  >
-                    {uploadingIndex === index ? (
-                      <>
-                        <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                        Uploading...
-                      </>
-                    ) : (
-                      <>
-                        <Upload className="w-4 h-4 mr-2" />
-                        Upload Image
-                      </>
-                    )}
-                  </Button>
+                  <div className="border-2 border-dashed border-primary-500/30 rounded-lg p-8 text-center bg-primary-500/5 hover:bg-primary-500/10 transition-colors">
+                    <Upload className="w-12 h-12 mx-auto mb-4 text-primary-400" />
+                    <h4 className="text-lg font-semibold mb-2">No Image Yet</h4>
+                    <p className="text-sm text-gray-400 mb-4">Click below to upload an image or paste a URL</p>
+                    <Button
+                      type="button"
+                      variant="primary"
+                      size="lg"
+                      onClick={() => triggerFileInput(index)}
+                      disabled={uploadingIndex === index}
+                      className="w-full max-w-xs"
+                    >
+                      {uploadingIndex === index ? (
+                        <>
+                          <RefreshCw className="w-5 h-5 mr-2 animate-spin" />
+                          Uploading...
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-5 h-5 mr-2" />
+                          Choose Image File
+                        </>
+                      )}
+                    </Button>
+                  </div>
                 )}
 
                 {/* Image URL */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Image URL * <span className="text-gray-500 text-xs">(or upload above)</span>
+                  <label className="block text-sm font-medium text-gray-300 mb-3">
+                    Image URL *
+                    <span className="text-gray-500 text-xs ml-2">(or use upload buttons above/below)</span>
                   </label>
-                  <div className="flex space-x-2">
+                  <div className="flex gap-2">
                     <input
                       type="text"
                       value={image.url}
                       onChange={(e) => handleHeroImageChange(index, 'url', e.target.value)}
-                      placeholder="https://... or /images/hero/..."
-                      className="flex-1 px-4 py-2 rounded-lg bg-dark-800 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
+                      placeholder="https://example.com/image.jpg or /images/hero/image.jpg"
+                      className="flex-1 px-4 py-3 rounded-lg bg-dark-800 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                     />
                     <Button
                       type="button"
-                      variant="outline"
-                      size="sm"
+                      variant="primary"
                       onClick={() => triggerFileInput(index)}
                       disabled={uploadingIndex === index}
+                      className="px-6"
                     >
-                      <Upload className="w-4 h-4" />
+                      {uploadingIndex === index ? (
+                        <RefreshCw className="w-5 h-5 animate-spin" />
+                      ) : (
+                        <>
+                          <Upload className="w-5 h-5 mr-2" />
+                          Browse
+                        </>
+                      )}
                     </Button>
                   </div>
+                  <p className="text-xs text-gray-500 mt-2">
+                    💡 Click "Browse" to upload from your computer, or paste an image URL above
+                  </p>
                 </div>
 
                 {/* Alt Text */}
