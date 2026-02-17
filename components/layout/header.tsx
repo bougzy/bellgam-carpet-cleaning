@@ -33,7 +33,7 @@ export function Header() {
       <nav className="container-custom">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/images/bellgamslogo.png"
               alt="Bellgams Cleaning Services"
@@ -42,6 +42,10 @@ export function Header() {
               className="h-12 w-auto object-contain"
               priority
             />
+            <div>
+              <h1 className="text-xl font-bold text-white">Bellgams</h1>
+              <p className="text-xs text-gray-400">Cleaning Services</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

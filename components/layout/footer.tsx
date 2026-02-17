@@ -31,14 +31,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="flex items-center space-x-3 mb-4">
               <Image
                 src="/images/bellgamslogo.png"
                 alt="Bellgams Cleaning Services"
                 width={180}
                 height={70}
-                className="h-16 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
+              <div>
+                <h3 className="text-xl font-bold text-white">Bellgams</h3>
+                <p className="text-xs text-gray-400">Cleaning Services</p>
+              </div>
             </Link>
             <p className="text-gray-400 mb-4">
               Professional carpet cleaning services in British Columbia. Expert steam cleaning,

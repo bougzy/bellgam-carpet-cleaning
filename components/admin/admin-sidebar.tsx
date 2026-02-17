@@ -52,7 +52,10 @@ export function AdminSidebar() {
             height={50}
             className="h-10 w-auto object-contain"
           />
-          <span className="text-xs text-gray-400 font-medium">Admin</span>
+          <div>
+            <h1 className="text-lg font-bold text-white">Bellgams</h1>
+            <p className="text-xs text-gray-400">Admin Dashboard</p>
+          </div>
         </Link>
       </div>
 
