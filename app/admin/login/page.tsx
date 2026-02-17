@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, Suspense } from 'react';
+import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { FadeIn } from '@/components/animations/fade-in';
 import { verifyCredentials, createSessionToken, setSessionCookie } from '@/lib/auth-simple';
-import { Shield, Lock, Mail } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 function LoginForm() {
   const router = useRouter();
@@ -47,9 +48,13 @@ function LoginForm() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <FadeIn className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full glass-card">
-            <Shield className="w-8 h-8 text-primary-400" />
-          </div>
+          <Image
+            src="/images/bellgamslogo.png"
+            alt="Bellgams Cleaning Services"
+            width={200}
+            height={80}
+            className="h-20 w-auto object-contain mx-auto mb-4"
+          />
           <h1 className="text-3xl font-bold gradient-text mb-2">
             Admin Dashboard
           </h1>
@@ -129,9 +134,13 @@ export default function AdminLoginPage() {
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full glass-card">
-              <Shield className="w-8 h-8 text-primary-400 animate-pulse" />
-            </div>
+            <Image
+              src="/images/bellgamslogo.png"
+              alt="Bellgams Cleaning Services"
+              width={200}
+              height={80}
+              className="h-20 w-auto object-contain mx-auto mb-4 animate-pulse"
+            />
             <h1 className="text-3xl font-bold gradient-text mb-2">
               Admin Dashboard
             </h1>

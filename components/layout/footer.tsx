@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/constants';
-import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin, Sparkles } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
 
 const footerLinks = {
   services: [
@@ -30,14 +31,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-blue-600 flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">Bellgams</h3>
-                <p className="text-xs text-gray-400">Carpet Cleaning</p>
-              </div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/images/bellgamslogo.png"
+                alt="Bellgams Cleaning Services"
+                width={180}
+                height={70}
+                className="h-16 w-auto object-contain"
+              />
             </Link>
             <p className="text-gray-400 mb-4">
               Professional carpet cleaning services in British Columbia. Expert steam cleaning,

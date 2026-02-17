@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateWhatsAppLink } from '@/lib/whatsapp';
-import { Menu, X, Phone, Sparkles } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -32,14 +33,15 @@ export function Header() {
       <nav className="container-custom">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-blue-600 flex items-center justify-center">
-              <Sparkles className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">Bellgams</h1>
-              <p className="text-xs text-gray-400">Carpet Cleaning</p>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/bellgamslogo.png"
+              alt="Bellgams Cleaning Services"
+              width={160}
+              height={60}
+              className="h-12 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

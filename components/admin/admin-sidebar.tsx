@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { clearSessionCookie } from '@/lib/auth-simple';
@@ -15,7 +16,6 @@ import {
   MessageSquare,
   Settings,
   LogOut,
-  Sparkles,
 } from 'lucide-react';
 
 const navigation = [
@@ -44,15 +44,16 @@ export function AdminSidebar() {
     <div className="flex flex-col h-full glass-card border-r border-white/10">
       {/* Logo */}
       <div className="p-6 border-b border-white/10">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-blue-600 flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h1 className="text-lg font-bold text-white">Bellgams</h1>
-            <p className="text-xs text-gray-400">Admin Dashboard</p>
-          </div>
-        </div>
+        <Link href="/admin" className="flex items-center space-x-3">
+          <NextImage
+            src="/images/bellgamslogo.png"
+            alt="Bellgams Cleaning Services"
+            width={140}
+            height={50}
+            className="h-10 w-auto object-contain"
+          />
+          <span className="text-xs text-gray-400 font-medium">Admin</span>
+        </Link>
       </div>
 
       {/* Navigation */}
