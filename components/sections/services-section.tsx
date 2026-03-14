@@ -13,6 +13,10 @@ interface ServicesSectionProps {
   services: Service[];
 }
 
+
+
+
+
 // Map service slugs to professional images - only carpet and upholstery services
 const serviceImages: Record<string, string> = {
   'carpet-steam-cleaning': 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop&q=80',

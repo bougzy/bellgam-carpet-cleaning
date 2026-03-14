@@ -23,7 +23,7 @@ export function Hero() {
 
   // State for hero images - fetched from database
   const [heroImages, setHeroImages] = useState<Array<{ url: string; alt: string }>>([
-    { url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80', alt: 'Professional carpet cleaning' },
+    { url: '', alt: 'Professional carpet cleaning' },
   ]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
