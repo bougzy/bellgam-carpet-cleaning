@@ -61,7 +61,7 @@ We clean:
 - Sectionals
 - Recliners`,
       icon: '/images/services/upholstery.svg',
-      price: 'From $149',
+      price: 'From $99',
       featured: true,
       published: true,
       order: 2,

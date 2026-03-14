@@ -55,20 +55,20 @@ export async function GET() {
           url: '/images/b.jpeg',
           alt: 'Professional window cleaning service' 
         },
-        // { 
-        //   url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop&q=80', 
-        //   alt: 'Professional carpet cleaning - Modern living room' 
-        // },
         { 
-          url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&h=1080&fit=crop&q=80', 
+          url: '/images/bus.png', 
+          alt: 'Professional carpet cleaning - Modern living room' 
+        },
+        { 
+          url: '/images/rug.png', 
           alt: 'Clean carpet interior' 
         },
         { 
-          url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&h=1080&fit=crop&q=80', 
+          url: '/images/uphostry.png', 
           alt: 'Upholstery cleaning - Sofa in living room' 
         },
         { 
-          url: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1920&h=1080&fit=crop&q=80', 
+          url: '', 
           alt: 'Clean white carpet bedroom' 
         },
       ],
