@@ -33,7 +33,8 @@ export function Hero() {
       .then(res => res.json())
       .then(data => {
         if (data.heroImages && data.heroImages.length > 0) {
-          setHeroImages(data.heroImages);
+          const validImages = data.heroImages.filter((img: { url: string; alt: string }) => img.url && img.url.trim() !== '');
+          if (validImages.length > 0) setHeroImages(validImages);
         }
       })
       .catch(error => console.error('Error fetching hero images:', error));
@@ -55,10 +56,10 @@ export function Hero() {
         {heroImages.map((image, index) => (
           <motion.div
             key={image.url}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.0 }}
             animate={{
               opacity: index === currentImageIndex ? 1 : 0,
-              scale: index === currentImageIndex ? 1 : 1.1,
+              scale: index === currentImageIndex ? 0.95 : 1.0,
             }}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
             className="absolute inset-0"
@@ -67,14 +68,14 @@ export function Hero() {
               src={image.url}
               alt={image.alt || `Professional carpet cleaning service ${index + 1}`}
               fill
-              className="object-cover"
+              className="object-contain"
               priority={index === 0}
               sizes="100vw"
             />
           </motion.div>
         ))}
-        {/* Lighter overlay for better image visibility */}
-        <div className="absolute inset-0 bg-dark-950/65" />
+        {/* Overlay - reduced opacity so images show clearly */}
+        <div className="absolute inset-0 bg-dark-950/50" />
       </div>
 
       {/* Animated gradient effects on top */}
