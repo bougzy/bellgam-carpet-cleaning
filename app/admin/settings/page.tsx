@@ -11,7 +11,7 @@ export default function SettingsPage() {
   const [settings, setSettings] = useState({
     siteName: 'Bellgams Carpet Cleaning',
     whatsappNumber: '+16049021805',
-    phoneDisplay: '(604) 902-1805',
+    phoneDisplay: '+1(604) 902-1805',
     email: 'sbellgam2019@gmail.com',
     addressStreet: '281 Holdom Avenue',
     addressCity: 'Burnaby',
@@ -118,7 +118,7 @@ export default function SettingsPage() {
                 value={settings.phoneDisplay}
                 onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg bg-dark-800 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
-                placeholder="(604) 902-1805"
+                placeholder="+1(604) 902-1805"
                 required
               />
             </div>

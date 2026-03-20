@@ -329,7 +329,7 @@ export const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   description: 'Professional carpet cleaning services in British Columbia. Expert steam cleaning, pet stain removal, and upholstery cleaning.',
   phone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+16049021805',
-  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || '(604) 902-1805',
+  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || '+1(604) 902-1805',
   email: process.env.NEXT_PUBLIC_EMAIL || 'sbellgam2019@gmail.com',
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+16049021805',
   address: {

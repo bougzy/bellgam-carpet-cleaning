@@ -23,10 +23,7 @@ export async function GET() {
           url: '/images/rug.png', 
           alt: 'Clean carpet interior' 
         },
-        { 
-          url: '/images/uphostry.png', 
-          alt: 'Upholstery cleaning - Sofa in living room' 
-        },
+       
       ],
     };
 
