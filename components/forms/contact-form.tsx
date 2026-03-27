@@ -127,7 +127,7 @@ export function ContactForm({ services, locations }: ContactFormProps) {
               type="tel"
               {...register('phone')}
               error={errors.phone?.message}
-              placeholder="(604) 123-4567"
+              placeholder="+1(604) 123-4567"
             />
           </div>
 
