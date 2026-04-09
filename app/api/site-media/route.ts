@@ -16,7 +16,7 @@ export async function GET() {
           alt: 'Professional window cleaning service' 
         },
         { 
-          url: '/images/bus.png', 
+          url: '/images/uphosterycleaning.png', 
           alt: 'Professional carpet cleaning - Modern living room' 
         },
         { 
