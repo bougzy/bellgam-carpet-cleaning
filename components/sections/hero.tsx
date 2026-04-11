@@ -1,3 +1,7 @@
+
+
+
+
 // 'use client';
 
 // import { useState, useEffect } from 'react';
@@ -5,11 +9,13 @@
 // import { FadeIn } from '@/components/animations/fade-in';
 // import { generateWhatsAppLink } from '@/lib/whatsapp';
 // import { Phone, ArrowRight, CheckCircle } from 'lucide-react';
-// import { SITE_CONFIG } from '@/lib/constants';
 // import Image from 'next/image';
 // import { motion } from 'framer-motion';
+// import { useRegion } from '@/lib/region-context';
 
 // export function Hero() {
+//   const { regionConfig } = useRegion();
+
 //   const whatsappLink = generateWhatsAppLink({
 //     message: "Hi! I'd like to get a free quote for carpet cleaning.",
 //   });
@@ -21,13 +27,11 @@
 //     'Certified Professionals',
 //   ];
 
-//   // State for hero images - fetched from database
 //   const [heroImages, setHeroImages] = useState<Array<{ url: string; alt: string }>>([
 //     { url: '', alt: 'Professional carpet cleaning' },
 //   ]);
 //   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-//   // Fetch hero images from API
 //   useEffect(() => {
 //     fetch('/api/site-media')
 //       .then(res => res.json())
@@ -40,12 +44,10 @@
 //       .catch(error => console.error('Error fetching hero images:', error));
 //   }, []);
 
-//   // Image carousel rotation
 //   useEffect(() => {
 //     const interval = setInterval(() => {
 //       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-//     }, 5000); // Change image every 5 seconds
-
+//     }, 5000);
 //     return () => clearInterval(interval);
 //   }, [heroImages.length]);
 
@@ -74,25 +76,18 @@
 //             />
 //           </motion.div>
 //         ))}
-//         {/* Overlay - reduced opacity so images show clearly */}
 //         <div className="absolute inset-0 bg-dark-950/50" />
 //       </div>
 
-//       {/* Animated gradient effects on top */}
+//       {/* Animated gradient effects */}
 //       <div className="absolute inset-0 z-[1]">
 //         <motion.div
-//           animate={{
-//             scale: [1, 1.2, 1],
-//             opacity: [0.3, 0.5, 0.3],
-//           }}
+//           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
 //           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
 //           className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"
 //         />
 //         <motion.div
-//           animate={{
-//             scale: [1, 1.3, 1],
-//             opacity: [0.3, 0.5, 0.3],
-//           }}
+//           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
 //           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
 //           className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl"
 //         />
@@ -111,21 +106,25 @@
 //                 transition={{ duration: 1.5, repeat: Infinity }}
 //                 className="w-2 h-2 bg-green-400 rounded-full"
 //               />
-//               <span className="text-sm text-gray-300">Available 7 Days a Week</span>
+//               <span className="text-sm text-gray-300">
+//                 {regionConfig.flag} Now Serving {regionConfig.label} · Available 7 Days a Week
+//               </span>
 //             </motion.div>
 //           </FadeIn>
 
 //           <FadeIn delay={0.2}>
 //             <h1 className="heading-1 mb-6">
-//               Professional <span className="gradient-text animate-gradient">Carpet Cleaning</span><br />
-//               Services In British Columbia
+//               Professional <span className="gradient-text animate-gradient">Carpet Cleaning</span>
+//               <br />
+//               {regionConfig.id === 'bc'
+//                 ? 'Services In British Columbia'
+//                 : 'Services In Toronto & the GTA'}
 //             </h1>
 //           </FadeIn>
 
 //           <FadeIn delay={0.3}>
 //             <p className="body-large text-gray-300 mb-8 max-w-2xl mx-auto">
-//               Expert steam cleaning, pet stain removal, and upholstery cleaning.
-//               Trusted by thousands of happy customers. Get your free quote today!
+//               {regionConfig.heroSubtitle}
 //             </p>
 //           </FadeIn>
 
@@ -137,10 +136,10 @@
 //                   <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-2" />
 //                 </Button>
 //               </a>
-//               <a href={`tel:${SITE_CONFIG.phone}`}>
+//               <a href={`tel:${regionConfig.phone}`}>
 //                 <Button variant="outline" size="lg" className="w-full sm:w-auto group">
 //                   <Phone className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" />
-//                   {SITE_CONFIG.phoneDisplay}
+//                   {regionConfig.phoneDisplay}
 //                 </Button>
 //               </a>
 //             </div>
@@ -166,13 +165,10 @@
 //         </div>
 //       </div>
 
-//       {/* Decorative bottom wave */}
 //       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-950 to-transparent" />
 //     </section>
 //   );
 // }
-
-
 
 
 'use client';
@@ -210,7 +206,9 @@ export function Hero() {
       .then(res => res.json())
       .then(data => {
         if (data.heroImages && data.heroImages.length > 0) {
-          const validImages = data.heroImages.filter((img: { url: string; alt: string }) => img.url && img.url.trim() !== '');
+          const validImages = data.heroImages.filter(
+            (img: { url: string; alt: string }) => img.url && img.url.trim() !== ''
+          );
           if (validImages.length > 0) setHeroImages(validImages);
         }
       })
@@ -219,55 +217,65 @@ export function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      setCurrentImageIndex(prev => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image Carousel */}
+
+      {/* ── Full-bleed image carousel ── */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((image, index) => (
           <motion.div
-            key={image.url}
-            initial={{ opacity: 0, scale: 1.0 }}
-            animate={{
-              opacity: index === currentImageIndex ? 1 : 0,
-              scale: index === currentImageIndex ? 0.95 : 1.0,
-            }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            key={image.url || index}
             className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
           >
-            <Image
-              src={image.url}
-              alt={image.alt || `Professional carpet cleaning service ${index + 1}`}
-              fill
-              className="object-contain"
-              priority={index === 0}
-              sizes="100vw"
-            />
+            {image.url ? (
+              <Image
+                src={image.url}
+                alt={image.alt || `Professional carpet cleaning service ${index + 1}`}
+                fill
+                /*
+                 * object-cover  → always fills the full width & height of the
+                 *                  section, cropping as needed. No letter-boxing,
+                 *                  no empty edges.
+                 * style position → keeps the focal point centred
+                 */
+                className="object-cover object-center"
+                priority={index === 0}
+                sizes="100vw"
+              />
+            ) : null}
           </motion.div>
         ))}
-        <div className="absolute inset-0 bg-dark-950/50" />
+
+        {/* Dark overlay so text stays readable */}
+        <div className="absolute inset-0 bg-dark-950/60" />
       </div>
 
-      {/* Animated gradient effects */}
-      <div className="absolute inset-0 z-[1]">
+      {/* ── Ambient glow effects ── */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
         <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.45, 0.25] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute top-20 left-10 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+          animate={{ scale: [1, 1.3, 1], opacity: [0.25, 0.45, 0.25] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl"
         />
       </div>
 
+      {/* ── Text content ── */}
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+
           <FadeIn delay={0.1}>
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
@@ -287,7 +295,8 @@ export function Hero() {
 
           <FadeIn delay={0.2}>
             <h1 className="heading-1 mb-6">
-              Professional <span className="gradient-text animate-gradient">Carpet Cleaning</span>
+              Professional{' '}
+              <span className="gradient-text animate-gradient">Carpet Cleaning</span>
               <br />
               {regionConfig.id === 'bc'
                 ? 'Services In British Columbia'
@@ -335,9 +344,11 @@ export function Hero() {
               ))}
             </div>
           </FadeIn>
+
         </div>
       </div>
 
+      {/* Bottom fade into page */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-950 to-transparent" />
     </section>
   );
