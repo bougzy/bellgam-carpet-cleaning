@@ -125,10 +125,10 @@ interface ServicesSectionProps {
 // ============================================================
 const serviceImages: Record<string, string> = {
   'carpet-steam-cleaning':    '/images/b.jpeg',
-  'pet-stain-odor-removal':   '/images/petstain.png',
-  'pet-odor-removal':         '/images/petstain.png',
-  'upholstery-cleaning':      '/images/uphosterycleaning.png',
-  'area-rug-cleaning':        '/images/rug.png',
+  'pet-stain-odor-removal':   '/images/pet-stains-odor-cleaning.jpg',
+  'pet-odor-removal':         '/images/pets.jpg',
+  'upholstery-cleaning':      '/images/public/images/Upholstery-Cleaning-Does-it-Make-a-Bif-Difference_.jpeg',
+  'area-rug-cleaning':        '/images/rugcleaning.jpg',
   'stain-removal':            '/images/b.jpeg',
 };
 

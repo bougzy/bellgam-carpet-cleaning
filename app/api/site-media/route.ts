@@ -13,15 +13,19 @@ export async function GET() {
       heroImages: [
         { 
           url: '/images/b.jpeg',
-          alt: 'Professional window cleaning service' 
+          alt: 'Professional carpet cleaning service' 
         },
         { 
-          url: '/images/uphosterycleaning.png', 
-          alt: 'Professional carpet cleaning - Modern living room' 
+          url: '/images/Upholstery-Cleaning-Does-it-Make-a-Bif-Difference_.jpeg', 
+          alt: 'Professional upholstery cleaning - Modern living room' 
         },
         { 
-          url: '/images/rug.png', 
-          alt: 'Clean carpet interior' 
+          url: '/images/rugcleaning.jpg', 
+          alt: 'Professional rug cleaning' 
+        },
+        { 
+          url: '/images/pets.jpg', 
+          alt: 'Professional pet stain removal' 
         },
        
       ],
