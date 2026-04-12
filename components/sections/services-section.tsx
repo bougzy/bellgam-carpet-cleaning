@@ -127,7 +127,7 @@ const serviceImages: Record<string, string> = {
   'carpet-steam-cleaning':    '/images/b.jpeg',
   'pet-stain-odor-removal':   '/images/pet-stains-odor-cleaning.jpg',
   'pet-odor-removal':         '/images/pets.jpg',
-  'upholstery-cleaning':      '/images/public/images/Upholstery-Cleaning-Does-it-Make-a-Bif-Difference_.jpeg',
+  'upholstery-cleaning':      '/images/public/images/rugcleaning.jpg',
   'area-rug-cleaning':        '/images/rugcleaning.jpg',
   'stain-removal':            '/images/b.jpeg',
 };
