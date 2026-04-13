@@ -16,7 +16,7 @@ export async function GET() {
           alt: 'Professional carpet cleaning service' 
         },
         { 
-          url: '/images/Upholstery-Cleaning-Does-it-Make-a-Bif-Difference_.jpeg', 
+          url: '/images/uphostery.png', 
           alt: 'Professional upholstery cleaning - Modern living room' 
         },
         { 
