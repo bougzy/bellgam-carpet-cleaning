@@ -16,7 +16,7 @@ export async function GET() {
           alt: 'Professional carpet cleaning service' 
         },
         { 
-          url: '/images/uphostery.png', 
+          url: '/images/holppst.jpg', 
           alt: 'Professional upholstery cleaning - Modern living room' 
         },
         { 
