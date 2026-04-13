@@ -125,7 +125,7 @@ interface ServicesSectionProps {
 // ============================================================
 const serviceImages: Record<string, string> = {
   'carpet-steam-cleaning':    '/images/b.jpeg',
-  'pet-stain-odor-removal':   '/images/pet-stains-odor-cleaning.jpg',
+  'pet-stain-odor-removal':   '/images/holppst.jpg',
   'pet-odor-removal':         '/images/pets.jpg',
   'upholstery-cleaning':      '/images/public/images/holppst.jpg',
   'area-rug-cleaning':        '/images/rugcleaning.jpg',
